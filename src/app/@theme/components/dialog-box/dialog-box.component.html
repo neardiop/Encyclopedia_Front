@@ -1,0 +1,46 @@
+<h5 mat-dialog-title>{{data.title}}</h5>
+<div mat-dialog-content>
+    <table mat-table [dataSource]="data" id="tableau2">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Mission </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="etape">
+            <th mat-header-cell *matHeaderCellDef> Etat </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.etape}}
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="dt_reel">
+            <th mat-header-cell *matHeaderCellDef> Date reelle </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.date_reel}}
+
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="dt_theo">
+            <th mat-header-cell *matHeaderCellDef> Date prevue </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.date_theo}}
+
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="num_tournee">
+            <th mat-header-cell *matHeaderCellDef> Tournee </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.num_tournee}}
+
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="colonnes"></tr>
+        <tr mat-row *matRowDef="let row; columns: colonnes;"></tr>
+    </table>
+</div>
+<div>
+</div>
+<div mat-dialog-actions>
+
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Retour</button>
+</div>

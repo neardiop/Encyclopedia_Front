@@ -1,0 +1,10 @@
+{
+    "/posts": {
+      "target": "http://www.cogepart.fr/zou/api/v5/public/reports/missions/destinataires/client/15099/30",
+      "secure": true,
+      "pathRewrite": {
+      "^/posts": ""
+    },
+      "changeOrigin": true
+    }
+  }
