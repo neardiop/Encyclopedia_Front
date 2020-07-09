@@ -1,4 +1,3 @@
-import { EchartsBarComponent } from './components/echarts/echarts-bar.component';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,10 +29,6 @@ import { NbAuthModule, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/a
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LogoutComponent } from './auth/logout/logout.component';
-import { EchartsBarLineComponent } from './components/echarts/echarts-bar-line.component';
-import { EchartsBarLineScanComponent } from './components/echarts/echarts-bar-line-scan.component';
-import { EchartsBarRespectDelaisComponent } from './components/echarts/echarts-bar-respect-delais.component';
-import { DatatablesMissionsComponent } from './components/datatables-missions/datatables-missions.component';
 
 import { MatSelectModule, MatButtonModule, MatGridListModule, MatCardModule, MatDialogModule, MatPaginatorModule, MatButtonToggleModule, MatProgressSpinnerModule } from "@angular/material";
 import { DialogBoxComponent } from './@theme/components/dialog-box/dialog-box.component';
@@ -47,7 +42,7 @@ const formSetting: any = {
 };
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, EchartsBarComponent, LogoutComponent, EchartsBarLineComponent, EchartsBarLineScanComponent, EchartsBarRespectDelaisComponent, DatatablesMissionsComponent, DialogBoxComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, LogoutComponent, DialogBoxComponent],
   imports: [
     NbIconModule,
     BrowserModule,
@@ -85,24 +80,7 @@ const formSetting: any = {
     NbChatModule.forRoot({
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: 'email',
-          baseEndpoint: 'http://cogepart.fr/zou-api/v1',
-          login: {
-            endpoint: '/api/auth/login',
-            redirect: {
-              success: '/pages/dashboard/',
-              failure: null,
-            },
-          },
-          token: {
-            class: NbAuthJWTToken,
-          },
-        }),
-      ],
-    }),
+    NbAuthModule.forRoot({}),
     CoreModule.forRoot(),
     NbCardModule,
     ThemeModule,
