@@ -13,7 +13,6 @@ class User {
 
   pass: string = '';
 
-
 }
 
 @Component({ templateUrl: 'login.component.html' })

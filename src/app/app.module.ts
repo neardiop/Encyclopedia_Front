@@ -32,6 +32,7 @@ import { LogoutComponent } from './auth/logout/logout.component';
 
 import { MatSelectModule, MatButtonModule, MatGridListModule, MatCardModule, MatDialogModule, MatPaginatorModule, MatButtonToggleModule, MatProgressSpinnerModule } from "@angular/material";
 import { DialogBoxComponent } from './@theme/components/dialog-box/dialog-box.component';
+import { ArticlesComponent } from './components/articles/articles.component';
 
 
 const formSetting: any = {
@@ -42,7 +43,7 @@ const formSetting: any = {
 };
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, LogoutComponent, DialogBoxComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, LogoutComponent, DialogBoxComponent, ArticlesComponent],
   imports: [
     NbIconModule,
     BrowserModule,
