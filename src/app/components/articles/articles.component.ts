@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../@core/utils/services/api.services';
+import { UserActivityData } from '../../@core/data/user-activity';
 
 
 
@@ -47,6 +48,8 @@ export class ArticlesComponent implements OnInit {
   returnUrl: string;
   url: string;
   article: any;
+  articles: any
+  sub_categories:any
 
   constructor(
     private formBuilder: FormBuilder,
@@ -63,7 +66,9 @@ export class ArticlesComponent implements OnInit {
       name: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.-]+$')])],
       description: [''],
       content: [''],
+      sub_categorie_id: ['']
     });
+    this.getSubCategories('/sub_categories')
   }
 
   get data_form() { return this.createArticleForm.controls; }
@@ -71,7 +76,6 @@ export class ArticlesComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     if (this.createArticleForm.invalid) {
       return;
     }
@@ -81,8 +85,8 @@ export class ArticlesComponent implements OnInit {
     this.article.name = this.data_form.name.value;
     this.article.description = this.data_form.description.value;
     this.article.content = this.data_form.content.value;
-    this.article.user_id = 1;
-    this.article.sub_categorie_id = 2
+    this.article.user = "/users/1";
+    this.article.subCategorie = "/sub_categories/"+this.data_form.sub_categorie_id.value
 
     this.url = '/articles';
     let object: string;
@@ -95,8 +99,15 @@ export class ArticlesComponent implements OnInit {
         },
         error => {
         },()=>{
-          alert("Good")
+          this.router.navigate(['/dashboard']);
         });
+  }
+
+  getSubCategories(url: string): void {
+    this.apiService.getData(url).subscribe((results: any) => {
+      console.log(results)
+      this.sub_categories = results["hydra:member"]
+    })
   }
   
 }

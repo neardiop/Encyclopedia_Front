@@ -24,6 +24,7 @@ import {
   NbUserModule,
   NbActionsModule,
   NbIconModule,
+  NbSearchModule,
 } from '@nebular/theme';
 import { NbAuthModule, NbPasswordAuthStrategy, NbAuthJWTToken } from '@nebular/auth';
 import { LoginComponent } from './auth/login/login.component';
@@ -33,6 +34,9 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { MatSelectModule, MatButtonModule, MatGridListModule, MatCardModule, MatDialogModule, MatPaginatorModule, MatButtonToggleModule, MatProgressSpinnerModule } from "@angular/material";
 import { DialogBoxComponent } from './@theme/components/dialog-box/dialog-box.component';
 import { ArticlesComponent } from './components/articles/articles.component';
+import { AddArticleComponent } from './pages/add-article/add-article.component';
+import { MyArticleComponent } from './components/my-article/my-article.component';
+import { MyArticleViewComponent } from './pages/my-article-view/my-article-view.component';
 
 
 const formSetting: any = {
@@ -43,7 +47,7 @@ const formSetting: any = {
 };
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, LogoutComponent, DialogBoxComponent, ArticlesComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, LogoutComponent, DialogBoxComponent, ArticlesComponent, AddArticleComponent, MyArticleComponent, MyArticleViewComponent],
   imports: [
     NbIconModule,
     BrowserModule,
@@ -57,6 +61,7 @@ const formSetting: any = {
     ThemeModule.forRoot(),
     NbSidebarModule,
     NbLayoutModule,
+    NbSearchModule,
     NgxChartsModule,
     NgxEchartsModule,
     NbActionsModule,

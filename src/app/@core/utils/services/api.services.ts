@@ -46,4 +46,17 @@ export class ApiService {
         return data;
       }));
   }
+
+
+  updateData(values, apiPath: string): Observable<any> {
+    let apiUrl: string;
+    let header = new HttpHeaders();
+    header= header.append('content-type', 'application/json');
+    apiUrl = this.urlRoot + apiPath;
+    return this.http.put<any>(apiUrl, values,{headers : header})
+      .pipe(map(data => {
+        return data;
+      }));
+  }
+
 }

@@ -11,6 +11,9 @@ import {
   NbResetPasswordComponent,
 } from '@nebular/auth';
 import { LoginComponent } from './auth/login/login.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { AddArticleComponent } from './pages/add-article/add-article.component';
+import { MyArticleViewComponent } from './pages/my-article-view/my-article-view.component';
 
 const routes: Routes = [
   {
@@ -20,6 +23,14 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LogoutComponent,
+  },
+  {
+    path: 'add_article',
+    component: AddArticleComponent,
+  },
+  {
+    path: 'my_article',
+    component: MyArticleViewComponent,
   },
   {
     path: 'auth',

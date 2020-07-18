@@ -102,6 +102,7 @@ export class LoginComponent implements OnInit {
           console.log(data)
           if (data.token != null) {
             localStorage.setItem('connect', JSON.stringify(data.token));
+            localStorage.setItem('username', JSON.stringify(this.user.username));
             this.router.navigate(['/dashboard']);
           } else {
             this.message = data.error;

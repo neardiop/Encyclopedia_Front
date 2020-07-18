@@ -1,43 +1,61 @@
 <div class="container">
     <div class="row">
-      <div class="col-md-12"><b style="color: #0d3283;font-size: 30px;font-family: cursive;">Techlopedia</b>
-      </div>
-    </div>
-    <div class="row" style="margin-top: 20px;">
-      <div class="col-md-12">
-        <form [formGroup]="createArticleForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="name">Nom</label>
-            <input type="text" formControlName="name" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && createArticleForm.controls['name'].errors }" />
-            <div *ngIf="submitted && createArticleForm.controls['name'].hasError('required')" class="error-message"
-              [ngStyle]="{'color':'red'}">
-              Le nom est requis
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="text">Description</label>
-            <input type="description" formControlName="description" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && createArticleForm.controls['description'].errors }" />
-            <div *ngIf="submitted && createArticleForm.controls['description'].hasError('required')" class="error-message"
-              [ngStyle]="{'color':'red'}">La description
-               est requis</div>
-          </div>
-          <div class="form-group">
-            <label for="text">Content</label>
-            <input type="content" formControlName="content" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && createArticleForm.controls['content'].errors }" />
-            <div *ngIf="submitted && createArticleForm.controls['content'].hasError('required')" class="error-message"
-              [ngStyle]="{'color':'red'}">La description
-               est requis</div>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-success">Enregistrer</button>
-          </div>
-          <div *ngIf="showErrorMessage" style="color: red;">
-            {{message}}
-          </div>
-        </form>
+      <div class="col-lg-12">
+        <nb-card>
+          <nb-card-header>Création d'article</nb-card-header>
+          <nb-card-body>
+            <form [formGroup]="createArticleForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="sub_categorie_id">Sous Catégorie</label>
+                    <select class="form-control" formControlName="sub_categorie_id"
+                        [ngClass]="{ 'is-invalid': submitted && createArticleForm.controls['sub_categorie_id'].errors }">
+                        <option *ngFor="let item of sub_categories" [value]="item.id">{{item.name}}
+                        </option>
+                    </select>
+                    <div *ngIf="submitted && createArticleForm.controls['hopital_id'].hasError('required')"
+                        class="error-message" [ngStyle]="{'color':'red'}">
+                        L'hopital est requis
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" formControlName="name" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && createArticleForm.controls['name'].errors }" />
+                    <div *ngIf="submitted && createArticleForm.controls['name'].hasError('required')"
+                        class="error-message" [ngStyle]="{'color':'red'}">
+                        Le nom est requis
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="text">Description</label>
+                    <input type="description" formControlName="description" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && createArticleForm.controls['description'].errors }" />
+                    <div *ngIf="submitted && createArticleForm.controls['description'].hasError('required')"
+                        class="error-message" [ngStyle]="{'color':'red'}">La description
+                        est requis</div>
+                </div>
+                <div class="form-group">
+                    <label for="text">Content</label>
+                    <input type="content" formControlName="content" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && createArticleForm.controls['content'].errors }" />
+                    <div *ngIf="submitted && createArticleForm.controls['content'].hasError('required')"
+                        class="error-message" [ngStyle]="{'color':'red'}">La description
+                        est requis</div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success">Enregistrer</button>
+                </div>
+                <div *ngIf="showErrorMessage" style="color: red;">
+                    {{message}}
+                </div>
+            </form>
+          </nb-card-body>
+          <!-- <nb-card-footer>
+            <a class="exportPNG" href="#" (click)="downloadImg($event)">
+              Exporter au format PNG
+            </a>
+          </nb-card-footer> -->
+        </nb-card>
       </div>
     </div>
   </div>

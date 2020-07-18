@@ -6,8 +6,90 @@
     <nb-menu [items]="items"></nb-menu>
   </nb-sidebar>
   <nb-layout-column class="colored-column-basic">
-    Welcome
-    <ngx-articles></ngx-articles>
+    <div class="card-row">
+      <div class="card-col">
+        <nb-card size="tiny" style="height: 150px;">
+          <nb-card-header>
+            <nb-search type="rotate-layout"></nb-search>
+          </nb-card-header>
+          <nb-card-body>
+            <p>
+              You searched for: {{ value || '-' }}
+            </p>
+          </nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+    <div class="card-row" >
+      <div class="card-col">
+        <nb-card size="tiny" *ngFor="let article of articles | slice:0:2">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>
+            <p>
+              {{article.content}}
+            </p>
+          </nb-card-body>
+        </nb-card>
+      </div>
+      <div class="card-col">
+        <nb-card size="medium" *ngFor="let article of articles | slice:3:4">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="card-col">
+        <nb-card size="tiny" *ngFor="let article of articles | slice:5:6">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+        <nb-card size="small" *ngFor="let article of articles | slice:7:8">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+      </div>
+      <div class="card-col">
+        <nb-card size="large" *ngFor="let article of articles | slice:9:10">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+
+    <div class="card-row">
+      <div class="card-col">
+        <nb-card size="tiny" *ngFor="let article of articles | slice:11:12">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+        <nb-card size="medium" *ngFor="let article of articles | slice:13:14">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+      </div>
+      <div class="card-col">
+        <nb-card size="giant" *ngFor="let article of articles | slice:15:16">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+      </div>
+    </div>
+
+    <div class="card-row">
+      <div class="card-col">
+        <nb-card size="tiny" *ngFor="let article of articles | slice:17:20">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+      </div>
+      <div class="card-col">
+        <nb-card size="giant" *ngFor="let article of articles | slice:20:21">
+          <nb-card-header>{{article.name}}</nb-card-header>
+          <nb-card-body>{{article.content}}</nb-card-body>
+        </nb-card>
+      </div>
+    </div>
   </nb-layout-column>
   <nb-layout-footer>
     <ngx-footer></ngx-footer>
